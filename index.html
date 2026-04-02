@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kriti Aggarwal — Senior Staff Applied Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563EB;
+            --secondary: #3B82F6;
+            --accent: #60A5FA;
+            --teal: #0d9488;
+            --purple: #7c3aed;
+            --sky: #0ea5e9;
+            --rose: #e11d48;
+            --amber: #f59e0b;
+            --dark: #1e293b;
+            --text: #334155;
+            --light-bg: #FFFFFF;
+            --light-gray: #F8FAFC;
+            --lighter-gray: #F1F5F9;
+            --border: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            nav {
+                padding: 0.75rem 1rem;
+            }
+        }
+
+        section {
+            scroll-margin-top: 80px;
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .btn-pill {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary);
+            background: var(--light-bg);
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .btn-pill:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        #about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-interests {
+            margin-top: 2rem;
+        }
+
+        .about-interests h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #BFDBFE;
+            transition: all 0.3s ease;
+        }
+
+        .tag:nth-child(1) { background: linear-gradient(135deg, #eff6ff, #f0f9ff); color: var(--primary); border-color: #bfdbfe; }
+        .tag:nth-child(2) { background: linear-gradient(135deg, #f0fdf4, #ecfdf5); color: var(--teal); border-color: #99f6e4; }
+        .tag:nth-child(3) { background: linear-gradient(135deg, #faf5ff, #f5f3ff); color: var(--purple); border-color: #ddd6fe; }
+        .tag:nth-child(4) { background: linear-gradient(135deg, #ecfeff, #f0f9ff); color: var(--sky); border-color: #a5f3fc; }
+        .tag:nth-child(5) { background: linear-gradient(135deg, #fff7ed, #fffbeb); color: #d97706; border-color: #fde68a; }
+        .tag:nth-child(6) { background: linear-gradient(135deg, #eff6ff, #eef2ff); color: #4f46e5; border-color: #c7d2fe; }
+        .tag:nth-child(7) { background: linear-gradient(135deg, #fdf2f8, #fff1f2); color: var(--rose); border-color: #fecdd3; }
+        .tag:nth-child(8) { background: linear-gradient(135deg, #f0fdf4, #ecfdf5); color: #059669; border-color: #a7f3d0; }
+
+        .tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.1);
+            border-color: var(--primary);
+        }
+
+        .stat-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .education-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .education-card {
+            background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #BFDBFE;
+        }
+
+        .education-card h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .education-card p {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .education-cards {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        #experience {
+            background: linear-gradient(180deg, white 0%, #F8FAFC 100%);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), transparent);
+            transform: translateX(-1px);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--light-bg);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-content {
+            width: calc(50% - 40px);
+            margin-left: auto;
+            padding: 1.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+            width: calc(50% - 40px);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+            border-color: var(--primary);
+        }
+
+        .timeline-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-period {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .timeline-description {
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .timeline-description li {
+            margin-bottom: 0.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .timeline-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 0.75rem;
+        }
+
+        .timeline-link:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 10px;
+            }
+            .timeline-marker {
+                left: 10px;
+            }
+            .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                width: calc(100% - 50px);
+                margin-left: 50px !important;
+            }
+        }
+
+        #publications {
+            background: white;
+        }
+
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pub-card {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .pub-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
+            border-color: var(--primary);
+        }
+
+        .pub-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .pub-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        .pub-title a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .pub-title a:hover {
+            color: var(--primary);
+        }
+
+        .pub-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .pub-venue {
+            background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+            color: var(--primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #BFDBFE;
+        }
+
+        .pub-year {
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .pub-description {
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .pub-authors {
+            color: #64748b;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .pub-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .btn-small {
+            padding: 0.6rem 1.2rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-small:hover {
+            background: var(--secondary);
+            transform: translateX(2px);
+        }
+
+        .btn-small.outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-small.outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .citations-note {
+            background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+            border: 2px solid #BFDBFE;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .citations-note a {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .citations-note a:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .publications-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #projects {
+            background: linear-gradient(180deg, white 0%, #F8FAFC 100%);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(37, 99, 235, 0.2);
+            border-color: var(--primary);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        .project-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            color: var(--text);
+            flex-grow: 1;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #skills {
+            background: white;
+        }
+
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .skill-category h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #BFDBFE;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+            color: var(--primary);
+        }
+
+        .skill-tag:nth-child(odd) { background: linear-gradient(135deg, #eff6ff, #f0f9ff); color: var(--primary); border-color: #bfdbfe; }
+        .skill-tag:nth-child(2) { background: linear-gradient(135deg, #f0fdf4, #ecfdf5); color: var(--teal); border-color: #99f6e4; }
+        .skill-tag:nth-child(4) { background: linear-gradient(135deg, #faf5ff, #f5f3ff); color: var(--purple); border-color: #ddd6fe; }
+        .skill-tag:nth-child(6) { background: linear-gradient(135deg, #ecfeff, #f0f9ff); color: var(--sky); border-color: #a5f3fc; }
+        .skill-tag:nth-child(8) { background: linear-gradient(135deg, #fff7ed, #fffbeb); color: #d97706; border-color: #fde68a; }
+        .skill-tag:nth-child(10) { background: linear-gradient(135deg, #fdf2f8, #fff1f2); color: var(--rose); border-color: #fecdd3; }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        @media (max-width: 768px) {
+            .skills-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #awards {
+            background: linear-gradient(180deg, white 0%, #F8FAFC 100%);
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .award-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.1);
+            border-color: var(--primary);
+        }
+
+        .award-icon {
+            font-size: 2.5rem;
+            color: #F59E0B;
+            flex-shrink: 0;
+        }
+
+        .award-content h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .award-content p {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #contact {
+            background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+            text-align: center;
+        }
+
+        .contact-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid #BFDBFE;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .contact-description {
+            color: var(--text);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-email {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-email a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .contact-email a:hover {
+            color: var(--secondary);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">KA</div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Kriti Aggarwal</h1>
+            <h2 class="hero-subtitle">Senior Staff Applied Scientist @ Hippocratic AI</h2>
+            <p class="hero-description">GenAI, Deep Learning & Reinforcement Learning for Healthcare Safety | Ex-Microsoft Turing | 4,000+ Citations</p>
+            <div class="hero-buttons">
+                <a href="https://linkedin.com/in/kriti-agg" class="btn-pill" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://scholar.google.com/citations?user=iB-h89EAAAAJ&hl=en" class="btn-pill" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                <a href="mailto:kriti.dce@gmail.com" class="btn-pill"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://github.com/kriti-hippo" class="btn-pill" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a Senior Staff Applied Scientist at Hippocratic AI, leading GenAI and Deep Learning research on Polaris—a safety-focused AI system designed specifically for healthcare. My work combines cutting-edge generative AI innovation with real-world clinical validation, having evaluated systems with over 1,100 nurses and 130+ physicians.</p>
+                    <p>Previously, I spent 5+ years at Microsoft's Turing team, where I co-authored foundational multimodal models including BEiT-3, VLMo, and Kosmos-1. Before that, I built security automation frameworks at Adobe, analyzing vulnerabilities across 700+ products.</p>
+                    <p>My research spans healthcare AI, LLM safety, multi-modal learning, and computer vision—with a focus on building trustworthy systems that solve real problems.</p>
+                    <div class="about-interests">
+                        <h4>Research Interests</h4>
+                        <div class="interest-tags">
+                            <span class="tag">Healthcare AI</span>
+                            <span class="tag">LLM Safety</span>
+                            <span class="tag">Multi-modal Learning</span>
+                            <span class="tag">Reinforcement Learning</span>
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">GenAI</span>
+                            <span class="tag">Deep Learning</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="stats-grid">
+                        <div class="stat-card fade-in" style="animation-delay: 0.1s; border-left: 3px solid var(--primary);">
+                            <div class="stat-value" style="color: var(--primary);">4,000+</div>
+                            <div class="stat-label">Citations</div>
+                        </div>
+                        <div class="stat-card fade-in" style="animation-delay: 0.2s; border-left: 3px solid var(--teal);">
+                            <div class="stat-value" style="color: var(--teal);">8+</div>
+                            <div class="stat-label">Publications</div>
+                        </div>
+                        <div class="stat-card fade-in" style="animation-delay: 0.3s; border-left: 3px solid var(--purple);">
+                            <div class="stat-value" style="color: var(--purple);">12+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                    </div>
+                    <div class="education-cards">
+                        <div class="education-card fade-in" style="animation-delay: 0.4s">
+                            <h4>MS Computer Science</h4>
+                            <p>UC San Diego</p>
+                            <p style="font-size: 0.85rem; color: var(--primary); margin-top: 0.5rem;">GPA: 3.914</p>
+                        </div>
+                        <div class="education-card fade-in" style="animation-delay: 0.5s">
+                            <h4>B.Tech Software Engineering</h4>
+                            <p>Delhi Technological University</p>
+                            <p style="font-size: 0.85rem; color: var(--primary); margin-top: 0.5rem;">Rank: 4/64</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Senior Staff Applied Scientist</div>
+                        <div class="timeline-period">Oct 2023 – Present</div>
+                        <div class="timeline-description">
+                            <strong>Hippocratic AI</strong>
+                            <ul>
+                                <li>Leading research on Polaris—1T parameter safety-focused LLM constellation with 22+ cooperative agents</li>
+                                <li>First clinician-evaluated LLM: validated by 1,100+ nurses and 130+ physicians in clinical settings</li>
+                                <li>Co-authored RED QUEEN (ICLR 2025), HEART, and Polaris research papers</li>
+                                <li>Contributed to Polaris 3.0 with 4.2T parameters and advanced safety mechanisms</li>
+                                <li>Working on Reinforcement Learning and specialized LLM training methodologies for healthcare applications</li>
+                            </ul>
+                            <a href="https://hippocraticai.com/research/" class="timeline-link" target="_blank" rel="noopener">Visit Research <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Senior Applied Scientist</div>
+                        <div class="timeline-period">Jul 2018 – Oct 2023</div>
+                        <div class="timeline-description">
+                            <strong>Microsoft Turing (AI Center)</strong>
+                            <ul>
+                                <li>Co-authored <a href="https://arxiv.org/abs/2208.10442" target="_blank" rel="noopener" style="color: var(--primary);">BEiT-3</a> (CVPR 2023)—multimodal foundation model achieving SOTA on vision+language tasks</li>
+                                <li>Co-authored <a href="https://arxiv.org/abs/2111.02358" target="_blank" rel="noopener" style="color: var(--primary);">VLMo</a> (NeurIPS 2022)—unified vision-language model with Mixture-of-Modality-Experts</li>
+                                <li>Co-authored <a href="https://arxiv.org/abs/2302.14045" target="_blank" rel="noopener" style="color: var(--primary);">Kosmos-1</a> (NeurIPS 2023)—multimodal LLM with few-shot and zero-shot capabilities</li>
+                                <li>Co-authored <a href="https://proceedings.mlr.press/v189/mohammed23a.html" target="_blank" rel="noopener" style="color: var(--primary);">Bletchley</a> (ACML 2023)—multilingual multimodal dataset and model</li>
+                                <li>Built 1B image-text dataset; achieved ImageNet SOTA (87.8% Top-1 accuracy)</li>
+                                <li>DeepViz: Bing QA image model achieving <5ms latency with +10% coverage improvement</li>
+                                <li>DeepScan: Bing QA relevance system improving coverage (+1%) and precision (+0.33)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Deep Learning Intern</div>
+                        <div class="timeline-period">Jul – Sep 2017</div>
+                        <div class="timeline-description">
+                            <strong>Microsoft AI Center</strong>
+                            <ul>
+                                <li>Designed multi-task learning frameworks for Bing QA accuracy improvements</li>
+                                <li>Developed models for joint optimization of relevance and diversity tasks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Security Researcher</div>
+                        <div class="timeline-period">Jul 2013 – Aug 2016</div>
+                        <div class="timeline-description">
+                            <strong>Adobe ASSET (Advanced Security Systems & Education Team)</strong>
+                            <ul>
+                                <li>Built Security Automation Framework deployed across 100+ Adobe products</li>
+                                <li>Yaksha: Automated zero-day analysis system achieving 93% automation rate</li>
+                                <li>Tracklib: Vulnerability tracking system managing 100K+ vulnerabilities across 700+ products</li>
+                                <li>Established security best practices and incident response workflows</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <p class="section-subtitle">Selected work in AI safety, healthcare AI, and multimodal learning</p>
+            <div class="publications-grid">
+                <div class="pub-card fade-in">
+                    <i class="fas fa-shield-alt pub-icon" style="color: var(--rose);"></i>
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2409.17458" target="_blank" rel="noopener">RED QUEEN: Safeguarding LLMs Against Concealed Multi-Turn Jailbreaking</a></h3>
+                    <div class="pub-meta"><span class="pub-venue">ICLR 2025</span><span class="pub-year">2024</span></div>
+                    <p class="pub-description">Proposed RED QUEEN ATTACK achieving 87.62% success rate on GPT-4o and RED QUEEN GUARD reducing attacks to <1%. First comprehensive multi-turn jailbreak study with 56K attack data points across 40 scenarios.</p>
+                    <p class="pub-authors">Y. Jiang, K. Aggarwal, T. Laud, K. Munir, J. Pujara, S. Mukherjee</p>
+                    <div class="pub-buttons">
+                        <a href="https://arxiv.org/abs/2409.17458" class="btn-small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a>
+                        <a href="https://github.com/kriti-hippo/red_queen" class="btn-small outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+                <div class="pub-card fade-in">
+                    <i class="fas fa-heart pub-icon" style="color: #ec4899;"></i>
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2601.19922" target="_blank" rel="noopener">HEART: A Unified Benchmark for Assessing Humans and LLMs in Emotional Support Dialogue</a></h3>
+                    <div class="pub-meta"><span class="pub-venue">arXiv</span><span class="pub-year">2026</span></div>
+                    <p class="pub-description">First framework directly comparing humans and LLMs on multi-turn emotional support across 5 dimensions. Frontier LLMs match ~80% of human empathy but humans excel at adaptive reframing.</p>
+                    <div class="pub-buttons"><a href="https://arxiv.org/abs/2601.19922" class="btn-small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a></div>
+                </div>
+                <div class="pub-card fade-in">
+                    <i class="fas fa-stethoscope pub-icon" style="color: var(--teal);"></i>
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2603.29893" target="_blank" rel="noopener">Perfecting Human-AI Interaction at Clinical Scale</a></h3>
+                    <div class="pub-meta"><span class="pub-venue">arXiv</span><span class="pub-year">2026</span></div>
+                    <p class="pub-description">Production framework from 115M+ live patient-AI interactions and 7K+ clinician testing (500K+ test calls). Uses paralinguistics, turn-taking, and escalation markers for safety signals.</p>
+                    <div class="pub-buttons"><a href="https://arxiv.org/abs/2603.29893" class="btn-small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a></div>
+                </div>
+                <div class="pub-card fade-in">
+                    <i class="fas fa-hospital pub-icon" style="color: var(--sky);"></i>
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2403.13313" target="_blank" rel="noopener">Polaris: A Safety-Focused LLM Constellation Architecture for Healthcare</a></h3>
+                    <div class="pub-meta"><span class="pub-venue">arXiv</span><span class="pub-year">2024</span></div>
+                    <p class="pub-description">1T parameter constellation of cooperative LLM agents for real-time patient conversations. Evaluated by 1,100+ nurses and 130+ physicians. First comprehensive clinician evaluation of healthcare LLM.</p>
+                    <p class="pub-authors">S. Mukherjee, P. Gamble, M. Sanz Ausin, N. Kant, K. Aggarwal, et al.</p>
+                    <div class="pub-buttons"><a href="https://arxiv.org/abs/2403.13313" class="btn-small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a></div>
+                </div>
+                <div class="pub-card fade-in">
+                    <i class="fas fa-image pub-icon" style="color: var(--purple);"></i>
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2208.10442" target="_blank" rel="noopener">BEiT-3: Image as a Foreign Language</a></h3>
+                    <div class="pub-meta"><span class="pub-venue">CVPR 2023</span><span class="pub-year">2023</span></div>
+                    <p class="pub-description">General-purpose multimodal foundation model using Multiway Transformers. SOTA on vision and vision-language tasks. Treats images as "Imglish" for unified masked language modeling.</p>
+                    <p class="pub-authors">W. Wang, H. Bao, L. Dong, J. Bjorck, Z. Peng, Q. Liu, K. Aggarwal, et al.</p>
+                    <div class="pub-buttons"><a href="https://arxiv.org/abs/2208.10442" class="btn-small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a></div>
+                </div>
+                <div class="pub-card fade-in">
+                    <i class="fas fa-brain pub-icon" style="color: var(--amber);"></i>
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2302.14045" target="_blank" rel="noopener">Kosmos-1: Language Is Not All You Need</a></h3>
+                    <div class="pub-meta"><span class="pub-venue">NeurIPS 2023</span><span class="pub-year">2023</span></div>
+                    <p class="pub-description">Multimodal LLM perceiving general modalities, learning in context (few-shot), and following instructions (zero-shot). Trained on web-scale multimodal corpora with strong generalization.</p>
+                    <div class="pub-buttons"><a href="https://arxiv.org/abs/2302.14045" class="btn-small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a></div>
+                </div>
+                <div class="pub-card fade-in">
+                    <i class="fas fa-layer-group pub-icon" style="color: #059669;"></i>
+                    <h3 class="pub-title"><a href="https://arxiv.org/abs/2111.02358" target="_blank" rel="noopener">VLMo: Unified Vision-Language Pre-Training with Mixture-of-Modality-Experts</a></h3>
+                    <div class="pub-meta"><span class="pub-venue">NeurIPS 2022</span><span class="pub-year">2022</span></div>
+                    <p class="pub-description">Unified vision-language model with Mixture-of-Modality-Experts (MoME) Transformer. Jointly learns dual encoder and fusion encoder for flexible vision-language understanding.</p>
+                    <p class="pub-authors">H. Bao, W. Wang, L. Dong, Q. Liu, O.K. Mohammed, K. Aggarwal, et al.</p>
+                    <div class="pub-buttons"><a href="https://arxiv.org/abs/2111.02358" class="btn-small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a></div>
+                </div>
+                <div class="pub-card fade-in">
+                    <i class="fas fa-language pub-icon" style="color: #6366f1;"></i>
+                    <h3 class="pub-title"><a href="https://proceedings.mlr.press/v189/mohammed23a.html" target="_blank" rel="noopener">Bletchley: Bootstrapping a Multilingual Multimodal Dataset</a></h3>
+                    <div class="pub-meta"><span class="pub-venue">ACML 2023</span><span class="pub-year">2023</span></div>
+                    <p class="pub-description">High-quality multilingual image captions using English captions + translation pairs. SOTA on multilingual COCO, Multi30k, IGLUE, and xFlickr datasets.</p>
+                    <p class="pub-authors">O.K. Mohammed, K. Aggarwal, Q. Liu, S. Singhal, J. Bjorck, S. Som</p>
+                    <div class="pub-buttons"><a href="https://proceedings.mlr.press/v189/mohammed23a.html" class="btn-small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a></div>
+                </div>
+            </div>
+            <div class="citations-note fade-in">
+                View all publications and <strong>4,000+ total citations</strong> on <a href="https://scholar.google.com/citations?user=iB-h89EAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Selected research and engineering projects</p>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <i class="fas fa-hospital-user project-icon"></i>
+                    <h3 class="project-name">Polaris Healthcare LLM</h3>
+                    <p class="project-description">Safety-focused 1T parameter LLM constellation evaluated by 1,100+ nurses and 130+ physicians</p>
+                    <a href="https://hippocraticai.com/research/" class="project-link" target="_blank" rel="noopener">View Project</a>
+                </div>
+                <div class="project-card fade-in">
+                    <i class="fas fa-shield-alt project-icon"></i>
+                    <h3 class="project-name">RED QUEEN Safety</h3>
+                    <p class="project-description">Multi-turn jailbreak detection and defense for LLMs with 87.6% attack success analysis</p>
+                    <a href="https://github.com/kriti-hippo/red_queen" class="project-link" target="_blank" rel="noopener">GitHub</a>
+                </div>
+                <div class="project-card fade-in">
+                    <i class="fas fa-image project-icon"></i>
+                    <h3 class="project-name">BEiT-3</h3>
+                    <p class="project-description">Multimodal foundation model treating images as a foreign language for unified learning</p>
+                    <a href="https://arxiv.org/abs/2208.10442" class="project-link" target="_blank" rel="noopener">Read Paper</a>
+                </div>
+                <div class="project-card fade-in">
+                    <i class="fas fa-layer-group project-icon"></i>
+                    <h3 class="project-name">VLMo</h3>
+                    <p class="project-description">Unified vision-language model with Mixture-of-Modality-Experts transformer architecture</p>
+                    <a href="https://arxiv.org/abs/2111.02358" class="project-link" target="_blank" rel="noopener">Read Paper</a>
+                </div>
+                <div class="project-card fade-in">
+                    <i class="fas fa-brain project-icon"></i>
+                    <h3 class="project-name">Kosmos-1</h3>
+                    <p class="project-description">Multimodal LLM with few-shot learning and zero-shot instruction following capabilities</p>
+                    <a href="https://arxiv.org/abs/2302.14045" class="project-link" target="_blank" rel="noopener">Read Paper</a>
+                </div>
+                <div class="project-card fade-in">
+                    <i class="fas fa-search project-icon"></i>
+                    <h3 class="project-name">DeepViz & DeepScan</h3>
+                    <p class="project-description">Bing QA image understanding and relevance systems deployed at production scale</p>
+                    <a href="#projects" class="project-link">View Details</a>
+                </div>
+                <div class="project-card fade-in">
+                    <i class="fas fa-users project-icon"></i>
+                    <h3 class="project-name">Deep People Count</h3>
+                    <p class="project-description">Computer vision hackathon winner for assisting blind and visually impaired people</p>
+                    <a href="#projects" class="project-link">View Details</a>
+                </div>
+                <div class="project-card fade-in">
+                    <i class="fas fa-lock project-icon"></i>
+                    <h3 class="project-name">Yaksha Security</h3>
+                    <p class="project-description">Automated zero-day analysis achieving 93% automation across 100+ Adobe products</p>
+                    <a href="#projects" class="project-link">View Details</a>
+                </div>
+                <div class="project-card fade-in">
+                    <i class="fas fa-chart-line project-icon"></i>
+                    <h3 class="project-name">Tracklib</h3>
+                    <p class="project-description">Vulnerability tracking managing 100K+ issues across 700+ products at enterprise scale</p>
+                    <a href="#projects" class="project-link">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-categories">
+                <div class="skill-category fade-in">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>AI/ML</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">GenAI</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Large Language Models</span>
+                        <span class="skill-tag">Multimodal Learning</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">RLHF</span>
+                        <span class="skill-tag">Reinforcement Learning</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Domains</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Healthcare AI</span>
+                        <span class="skill-tag">LLM Safety</span>
+                        <span class="skill-tag">Red Teaming</span>
+                        <span class="skill-tag">Information Security</span>
+                        <span class="skill-tag">MLOps</span>
+                        <span class="skill-tag">Research</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards">
+        <div class="container">
+            <h2 class="section-title">Awards & Recognition</h2>
+            <div class="awards-grid">
+                <div class="award-card fade-in" style="border: 2px solid var(--amber); background: linear-gradient(135deg, #fffbeb 0%, #fff7ed 100%);">
+                    <i class="fas fa-crown award-icon" style="color: var(--amber);"></i>
+                    <div class="award-content">
+                        <h3 style="color: #b45309;">CEO Award 2026</h3>
+                        <p>Hippocratic AI | Outstanding contributions to AI research and product impact</p>
+                    </div>
+                </div>
+                <div class="award-card fade-in">
+                    <i class="fas fa-brain award-icon"></i>
+                    <div class="award-content">
+                        <h3>Runner-Up, Therascope Hackathon</h3>
+                        <p>Hippocratic AI 2024 | Patient archetype-based conversation idea</p>
+                    </div>
+                </div>
+                <!-- Paper Awards -->
+                <div class="award-card fade-in" style="border-left: 3px solid var(--purple);">
+                    <i class="fas fa-scroll award-icon" style="color: var(--purple);"></i>
+                    <div class="award-content">
+                        <h3>RED QUEEN — ICLR 2025</h3>
+                        <p>Paper accepted at the International Conference on Learning Representations, a top-tier ML venue. First comprehensive multi-turn jailbreak study with 56K attack data points.</p>
+                    </div>
+                </div>
+                <div class="award-card fade-in" style="border-left: 3px solid var(--primary);">
+                    <i class="fas fa-scroll award-icon" style="color: var(--primary);"></i>
+                    <div class="award-content">
+                        <h3>BEiT-3 — CVPR 2023</h3>
+                        <p>Paper accepted at IEEE/CVF Conference on Computer Vision and Pattern Recognition. Multimodal foundation model achieving SOTA on vision & vision-language benchmarks.</p>
+                    </div>
+                </div>
+                <div class="award-card fade-in" style="border-left: 3px solid var(--teal);">
+                    <i class="fas fa-scroll award-icon" style="color: var(--teal);"></i>
+                    <div class="award-content">
+                        <h3>Kosmos-1 — NeurIPS 2023</h3>
+                        <p>Paper accepted at Conference on Neural Information Processing Systems. Pioneering multimodal LLM for perception, in-context learning, and instruction following.</p>
+                    </div>
+                </div>
+                <div class="award-card fade-in" style="border-left: 3px solid var(--sky);">
+                    <i class="fas fa-scroll award-icon" style="color: var(--sky);"></i>
+                    <div class="award-content">
+                        <h3>VLMo — NeurIPS 2022</h3>
+                        <p>Paper accepted at Conference on Neural Information Processing Systems. Unified vision-language pre-training with Mixture-of-Modality-Experts Transformer.</p>
+                    </div>
+                </div>
+                <div class="award-card fade-in" style="border-left: 3px solid #6366f1;">
+                    <i class="fas fa-scroll award-icon" style="color: #6366f1;"></i>
+                    <div class="award-content">
+                        <h3>Bletchley — ACML 2023</h3>
+                        <p>Paper accepted at Asian Conference on Machine Learning. Multilingual multimodal dataset bootstrapping achieving SOTA across multiple benchmarks.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content fade-in">
+                <h2 class="contact-title">Let's Connect</h2>
+                <p class="contact-description">I'm always interested in collaborations on healthcare AI, safety research, and multimodal learning challenges.</p>
+                <div class="contact-email"><a href="mailto:kriti.dce@gmail.com">kriti.dce@gmail.com</a></div>
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/kriti-agg" class="contact-link" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://scholar.google.com/citations?user=iB-h89EAAAAJ&hl=en" class="contact-link" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                    <a href="https://github.com/kriti-hippo" class="contact-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Kriti Aggarwal. Built with <span style="color: #F59E0B;">love</span> for safety-focused AI.</p>
+    </footer>
+
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').slice(1);
+                const targetSection = document.getElementById(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
